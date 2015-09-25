@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<head>
+		<title>Make big text!!!</title>
+	</head>
+	<link href="textillate/assets/animate.css" rel="stylesheet">
+	<link href="textillate/assets/style.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+
+	<body>
+		<div style="margin:50px">
+			<input id="input" placeholder="Write things here!"/>
+			<div class="tlt" data-in-effect="flash" data-in-shuffle="true">
+				<div id="result"></div>
+			</div>
+			<div class="tlt" data-in-effect="flash" data-in-shuffle="false">
+				<div id="result_lower"></div>
+			</div>
+			<div class="tlt" data-in-effect="flash" data-in-reverse="true">
+				<div id="result_upper"></div>
+			</div>
+		</div>
+	</body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="textillate/assets/jquery.fittext.js"></script>
+	<script src="textillate/assets/jquery.lettering.js"></script>
+	<script src="textillate/jquery.textillate.js"></script>
+	<script src="big.js"></script>
+	<script>
+		$('#input').bind('input', function() {
+			document.getElementById('result').innerHTML = make_big($(this).val());
+			document.getElementById('result_lower').innerHTML = make_big($(this).val().toLowerCase());
+			document.getElementById('result_upper').innerHTML = make_big($(this).val().toUpperCase());
+			$('.tlt').textillate('start');
+		});
+	</script>
+</html>
